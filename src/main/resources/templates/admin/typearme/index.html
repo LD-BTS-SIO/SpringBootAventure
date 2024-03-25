@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head th:replace="mesFragments :: fragHead">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="vh-100">
+    <nav th:replace="mesFragments :: fragNav"> </nav>
+    <div th:replace="mesFragments:: fragFlashSuccess"></div>
+    <main class="container">
+
+
+        <h1>Gestion des Types armes</h1>
+        <div >
+            <a th:href="@{'/admin/typearme/create'}" class="btn btn-success">
+                Ajouter un type arme
+            </a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>nombreDes</th>
+                <th>valeurDeMax</th>
+                <th>multiplicateurCritique</th>
+                <th>activationCritique</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="unTypeArme : ${typearmes}">
+                <td th:text="${unTypeArme.nom}"></td>
+                <td th:text="${unTypeArme.nombreDes}"></td>
+                <td th:text="${unTypeArme.valeurDeMax}"></td>
+                <td th:text="${unTypeArme.multiplicateurCritique}"></td>
+                <td th:text="${unTypeArme.activationCritique}"></td>
+                <td class="d-flex">
+                    <a th:href="@{'/admin/typearme/'+${unTypeArme.id}+'/edit'}" class="btn btn-warning">
+                        Modifier
+                    </a>
+                    <a th:href="@{'/admin/typearme/'+${unTypeArme.id}}" class="btn btn-primary">
+                        Consulter
+                    </a>
+                    <div>
+                        <form th:action="@{'/admin/typearme/delete'}" method="post">
+                            <input type="hidden" name="id" th:value="${unTypeArme.id}">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+
+</tbody>
+        </table>
+    </main>
+</div>
+<footer th:replace="mesFragments :: fragFooter"></footer>
+</body>
+</html>
+

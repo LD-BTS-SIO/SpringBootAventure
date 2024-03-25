@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head th:replace="mesFragments :: fragHead">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="vh-100">
+    <nav th:replace="mesFragments :: fragNav"></nav>
+    <main class="container">
+        <h1 th:style="${'color:'+typearme.nombreDes}" th:text="'Qualite '+${typearme.nom}"></h1>
+        <ul>
+            <li th:text="'Nom : '+ ${typearme.nom}"></li>
+            <li th:text="'nombreDes : '+${typearme.nombreDes}"></li>
+            <li th:text="'valeurDeMax : '+${typearme.valeurDeMax}"></li>
+            <li th:text="'multiplicateurCrnouvelleArmeitique : '+${typearme.multiplicateurCritique}"></li>
+            <li th:text="'activationCritiqnouvelleArmeue : '+${typearme.activationCritique}"></li>
+        </ul>
+    </main>
+</div>
+<footer th:replace="mesFragments :: fragFooter"></footer>
+</body>
+</html>

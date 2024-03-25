@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main class="container">
+    <div class="row col-10 col-sm-8 col-md-6 col-lg-4 mx-auto mt-3">
+
+        <form th:action="@{/admin/arme}" th:object="${nouvelleArme}" method="post">
+
+            <h2 class="mb-4">Ajouter une Arme</h2>
+
+            <!-- Input pour le nom de l'arme  -->
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nom de l'arme</label>
+                <input required type="text" class="form-control" id="nom" name="nom"  th:field="${nouvelleArme.nom}">
+            </div>
+            <!-- Input pour la description de l'arme -->
+            <div class="mb-3">
+                <label for="description" class="form-label">Description de l'arme</label>
+                <input required type="text" class="form-control" id="description" name="description"  th:field="${nouvelleArme.description}">
+            </div>
+
+
+
+            <!-- Input pour le chemin Image -->
+            <div class="mb-3">
+                <label for="cheminImage" class="form-label">Chemin Image</label>
+                <input required min="0" max="99" type="text" class="form-control" id="cheminImage" name="cheminImage" th:field="${nouvelleArme.cheminImage}">
+            </div>
+
+            <div class="mb-3">
+            <label for="qualite" class="form-label">Qualité</label>
+            <select required class="form-select" id="qualite" th:field="${nouvelleArme.qualite.id}">
+                <option  value="" selected="selected" disabled>Choisir une Qualite</option>
+                <option  th:each="uneQualite: ${qualites}" th:value="${uneQualite.id}" th:text="${uneQualite.nom}"></option>
+            </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="typearme" class="form-label">Type Arme</label>
+                <select required class="form-select" id="typearme" th:field="${nouvelleArme.typeArme.id}">
+                    <option  value="" selected="selected" disabled>Choisir un type arme</option>
+                    <option  th:each="unTypeArme: ${typearmes}" th:value="${unTypeArme.id}" th:text="${unTypeArme.nom}"></option>
+                </select>
+            </div>
+
+            <!-- Bouton de soumission -->
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+    </div>
+</main>
+
+
+</body>
+</html>

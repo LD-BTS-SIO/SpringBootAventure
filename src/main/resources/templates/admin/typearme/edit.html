@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main class="container">
+    <div class="row col-10 col-sm-8 col-md-6 col-lg-4 mx-auto mt-3">
+
+        <form novalidate class="validation" th:action="@{/admin/typearme/update}" th:object="${typearme}" method="post">
+            <h2 class="mb-4">Modification d'une Qualité</h2>
+            <!-- Input pour l'id de la qualité -->
+            <input readonly required type="hidden" name="id" th:field="${nouveauTypeArme.id}">
+
+            <!-- Input pour le nombre de dès de l'arme  -->
+            <div class="mb-3">
+                <label for="NombreDes" class="form-label">Nombre de dès de l'arme</label>
+                <input required type="number" class="form-control" id="NombreDes" name="NombreDes"  th:field="${nouveauTypeArme.nombreDes}">
+            </div>
+
+            <!-- Input pour le des max -->
+            <div class="mb-3">
+                <label for="NombreDesMax" class="form-label">NombreDesMax</label>
+                <input required min="0" max="99" type="number" class="form-control" id="NombreDesMax" name="NombreDesMax" th:field="${nouveauTypeArme.valeurDeMax}">
+            </div>
+
+
+            <!-- Input pour le ActivationCritique -->
+            <div class="mb-3">
+                <label for="activationCritique" class="form-label">activationCritique</label>
+                <input required min="0" max="99" type="number" class="form-control" id="activationCritique" name="activationCritique" th:field="${nouveauTypeArme.activationCritique}">
+            </div>
+
+            <!-- Input pour le multiplicateurCritique -->
+
+            <div class="mb-3">
+                <label for="multiplicateurCritique" class="form-label">multiplicateurCritique</label>
+                <input required min="0" max="99" type="number" class="form-control" id="multiplicateurCritique" name="multiplicateurCritique" th:field="${nouveauTypeArme.multiplicateurCritique}">
+            </div>
+
+            <!-- Input pour le nom -->
+            <div class="mb-3">
+                <label for="nom" class="form-label">nom </label>
+                <input required min="0" max="99" type="text" class="form-control" id="nom" name="nom" th:field="${nouveauTypeArme.nom}">
+            </div>
+
+
+            <!-- Bouton de soumission -->
+            <button type="submit" class="btn btn-primary">Modifier</button>
+        </form>
+    </div>
+</main>
+
+
+
+</body>
+</html>
